@@ -67,7 +67,7 @@ public class Galaxy {
 
         List<Planet> planetsScaled = new ArrayList<>();
         for(Planet p : planets) {
-            Planet p2 = new Planet(950.0*(p.getX() - minX)/xDistance, 950.0*(p.getY() - minY)/yDistance, p.getName());
+            Planet p2 = new Planet(1100*(p.getX() - minX)/xDistance + 50, 700*(p.getY() - minY)/yDistance + 50, p.getName());
             planetsScaled.add(p2);
         }
         return planetsScaled;
