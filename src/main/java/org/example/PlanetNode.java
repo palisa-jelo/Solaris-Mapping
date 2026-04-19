@@ -4,12 +4,16 @@ import javafx.scene.paint.Color;
 
 public class PlanetNode extends Circle {
     private final Planet planet;
+    private final double scaledX;
+    private final double scaledY;
 
-    public PlanetNode(int size, Planet planet) {
+    public PlanetNode(int size, Planet planet, double scaledX, double scaledY) {
         super(size);
         super.setStyle("-fx-fill: azure;");
         super.setStroke(Color.BLACK);
         this.planet = planet;
+        this.scaledX = scaledX;
+        this.scaledY = scaledY;
 
         super.setOnMouseClicked(clicked -> {
             if(clicked.isShiftDown() || !PlanetPath.getViewing()) {
@@ -30,5 +34,13 @@ public class PlanetNode extends Circle {
 
     public Planet getPlanet() {
         return this.planet;
+    }
+
+    public double getScaledX() {
+        return this.scaledX;
+    }
+
+    public double getScaledY() {
+        return scaledY;
     }
 }

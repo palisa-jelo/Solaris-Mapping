@@ -1,8 +1,9 @@
 package org.example;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
-public class PlanetPath extends LinkedList<PlanetNode> {
+public class PlanetPath extends LinkedList<PlanetNode> implements Iterable<PlanetNode>{
     private static PlanetPath path = null;
     private static boolean viewing = true;
 
@@ -50,7 +51,7 @@ public class PlanetPath extends LinkedList<PlanetNode> {
         }
         System.out.println("Our path is: ");
         for(PlanetNode p : path) {
-            p.setStyle("-fx-fill: red;");
+            p.setStyle("-fx-fill: lightgreen;");
             System.out.print(p.getPlanet() + " -> ");
         }
         System.out.println("\nIt's size is " + path.getDistance());

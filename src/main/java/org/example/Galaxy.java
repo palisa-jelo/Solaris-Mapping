@@ -38,7 +38,7 @@ public class Galaxy {
             planets.add(p);
         }
 
-        planetList = scale(planets);
+        planetList = planets;
     }
 
     public List<Planet> scale(List<Planet> planets) {
