@@ -17,6 +17,10 @@ public class Planet {
             this.x = x;
             this.y = y;
         }
+
+        public double distanceTo(Location loc) {
+            return Math.sqrt(Math.pow(this.x - loc.x,2) + Math.pow(this.y - loc.y, 2));
+        }
     }
 
     public String getName() {
@@ -29,6 +33,22 @@ public class Planet {
 
     public double getY() {
         return this.loc.y;
+    }
+
+    public static int distance(Planet p1, Planet p2) {
+        if(p1.equals(p2)) {
+            return 1;
+        }
+        double distance = p1.loc.distanceTo(p2.loc);
+        return (int) (distance / 0.2);
+    }
+
+    public static int warpDistance(Planet p1, Planet p2) {
+        if(p1.equals(p2)) {
+            return 1;
+        }
+        double distance = p1.loc.distanceTo(p2.loc);
+        return (int) (distance / 0.6);
     }
 
     @Override

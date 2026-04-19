@@ -16,6 +16,24 @@ public class GalaxyDisplay extends Application {
         Pane root = (Pane) setPlanets(Main.build());
         root.setStyle("-fx-alignment: center; -fx-padding: 5; -fx-background-color: black;");
         Scene scene = new Scene(root, 1200, 800);
+
+        scene.setOnKeyPressed(e -> {
+            switch(e.getCode()) {
+                case ENTER -> {
+                    PlanetPath path = PlanetPath.finish();
+
+                    //Draw the path
+                    if(path != null) {
+                        System.out.println("Not implemented yet!");
+                    }
+                }
+                case BACK_SPACE -> PlanetPath.delete();
+                case ESCAPE -> PlanetPath.wipe();
+                //more cases to be added
+            }
+
+        });
+
         stage.setTitle("Galaxy");
         stage.setScene(scene);
         stage.show();
@@ -25,10 +43,7 @@ public class GalaxyDisplay extends Application {
         Pane map = new Pane();
 
         for(Planet p : galaxy.getPlanets()) {
-
-            Circle circle = new Circle(8);
-            circle.setStyle("-fx-fill: azure;");
-            circle.setStroke(Color.BLACK);
+            Circle circle = new PlanetNode(8, p);
             Text label = new Text(p.getName());
             label.setFill(Color.WHITE);
             label.setStyle("-fx-font-size: 12px;");
